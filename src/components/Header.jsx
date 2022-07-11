@@ -17,7 +17,9 @@ const Header = () => {
       <div className="flex px-5 rounded-lg flex-[0.7] bg-[#F1F3F4] gap-3 h-3/4 items-center justify-between">
         {/* <div > */}
         <span className="flex items-center flex-1 h3/4 space-x-3">
-          <data.SearchIcon />
+          <data.IconButton>
+            <data.SearchIcon />
+          </data.IconButton>
           <input
             type="text"
             placeholder="Search mail"
@@ -25,7 +27,9 @@ const Header = () => {
           />
         </span>
         <span>
-          <data.TuneIcon />
+          <data.IconButton>
+            <data.TuneIcon />
+          </data.IconButton>
         </span>
         {/* </div> */}
       </div>
