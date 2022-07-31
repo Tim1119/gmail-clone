@@ -1,25 +1,28 @@
 import React from "react";
-import data from "./icons";
-// import Button from ".";
+import icon from "../icons";
+import { headerRightNavlinks } from "../exports";
+import { UserAuth } from "../context/UserContext";
+
 
 const Header = () => {
+
+  const {user} = UserAuth()
   return (
     <div className="h-[60px] flex gap-2 items-center w-screen bg-white border-b border-gray-150 justify-between px-5">
       <div className="flex items-center gap-4 ">
-        <data.MenuIcon />
+        <icon.MenuIcon />
 
         <img
-          src="http://tny.im/sIy"
+          src="	https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r2.png"
           alt="gmail-icon"
           className="cursor-pointer"
         />
       </div>
       <div className="flex px-5 rounded-lg flex-[0.7] bg-[#F1F3F4] gap-3 h-3/4 items-center justify-between">
-        {/* <div > */}
         <span className="flex items-center flex-1 h3/4 space-x-3">
-          <data.IconButton>
-            <data.SearchIcon />
-          </data.IconButton>
+          <icon.IconButton>
+            <icon.SearchIcon />
+          </icon.IconButton>
           <input
             type="text"
             placeholder="Search mail"
@@ -27,25 +30,20 @@ const Header = () => {
           />
         </span>
         <span>
-          <data.IconButton>
-            <data.TuneIcon />
-          </data.IconButton>
+          <icon.IconButton>
+            <icon.TuneIcon />
+          </icon.IconButton>
         </span>
-        {/* </div> */}
       </div>
+      {/* Header Right Icons */}
       <div className=" md:h-full md:gap-2 hidden md:flex md:items-center">
-        <data.IconButton>
-          <data.HelpOutlineIcon sx={{ width: 30, height: 30 }} />
-        </data.IconButton>
-        <data.IconButton>
-          <data.SettingsIcon sx={{ width: 30, height: 30 }} />
-        </data.IconButton>
-        <data.IconButton>
-          <data.AppsIcon sx={{ width: 30, height: 30 }} />
-        </data.IconButton>
-        <data.IconButton>
-          <data.Avatar sx={{ width: 30, height: 30 }} />
-        </data.IconButton>
+        {headerRightNavlinks.map((iconLink,id) => (
+          <icon.IconButton key={id} >{iconLink}</icon.IconButton>
+        ))}
+        <icon.IconButton >
+
+        <icon.Avatar  src={user?.photoURL} />,
+        </icon.IconButton>
       </div>
     </div>
   );
